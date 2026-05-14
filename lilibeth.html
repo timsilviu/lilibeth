@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lilibeth Clothes – Atelier de Modă Artizanală</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F9F5EF;
+    --warm-white: #FDFAF5;
+    --sand: #E8DDD0;
+    --linen: #C9B89D;
+    --terracotta: #A0614A;
+    --terracotta-dark: #7A4537;
+    --sage: #7A8C6E;
+    --deep: #2C1F16;
+    --text-muted: #7A6A5A;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--warm-white);
+    color: var(--deep);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253, 250, 245, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--deep);
+    text-decoration: none;
+    font-style: italic;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+  .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-cart {
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    padding: 0.55rem 1.4rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nav-cart:hover { background: var(--terracotta-dark); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 4rem 6rem 6rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--deep);
+    margin-bottom: 1.8rem;
+  }
+  .hero-title em { font-style: italic; color: var(--terracotta); }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 420px;
+    margin-bottom: 2.5rem;
+    line-height: 1.9;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--deep);
+    color: white;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--terracotta); }
+  .btn-outline {
+    background: transparent;
+    color: var(--deep);
+    border: 1px solid var(--deep);
+    padding: 0.9rem 2.2rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { background: var(--deep); color: white; }
+  .hero-visual {
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-illustration {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .hero-tag {
+    position: absolute;
+    background: white;
+    padding: 0.8rem 1.2rem;
+    border-left: 3px solid var(--terracotta);
+    font-size: 0.8rem;
+    color: var(--deep);
+  }
+  .hero-tag.top { top: 2rem; right: 3rem; }
+  .hero-tag.bottom { bottom: 3rem; left: 2rem; }
+  .hero-tag strong { display: block; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 0.2rem; }
+
+  /* ── PROMISE STRIP ── */
+  .promise-strip {
+    background: var(--deep);
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem 4rem;
+    flex-wrap: wrap;
+  }
+  .promise-item {
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .promise-icon {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    text-align: center;
+    padding: 5rem 4rem 3rem;
+  }
+  .section-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--deep);
+  }
+  .section-title em { font-style: italic; }
+
+  /* ── PRODUSE ── */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0 4rem 5rem;
+  }
+  .product-card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 0.5px solid var(--sand);
+  }
+  .product-image {
+    height: 420px;
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+  }
+  .product-card:hover .product-image { transform: scale(1.03); }
+  .product-badge {
+    position: absolute; top: 1.2rem; left: 1.2rem;
+    background: var(--terracotta); color: white;
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+  }
+  .product-info {
+    padding: 1.4rem 1.5rem 1.8rem;
+    background: white;
+  }
+  .product-category {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 0.4rem;
+  }
+  .product-name {
+    font-family: var(--serif);
+    font-size: 1.5rem; font-weight: 400;
+    color: var(--deep); margin-bottom: 0.4rem;
+  }
+  .product-material {
+    font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;
+  }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .product-price {
+    font-family: var(--serif);
+    font-size: 1.6rem; font-weight: 500; color: var(--deep);
+  }
+  .product-cta {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--terracotta); text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 1px;
+    cursor: pointer; background: none; border-top: none; border-left: none; border-right: none;
+    font-family: var(--sans);
+  }
+
+  /* SVG dress illustrations */
+  .dress-svg { width: 180px; height: 280px; }
+
+  /* ── ABOUT SPLIT ── */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+    margin: 2rem 0;
+  }
+  .about-visual {
+    background: var(--sand);
+    display: flex; align-items: center; justify-content: center;
+    padding: 4rem;
+    position: relative;
+  }
+  .about-visual-inner {
+    text-align: center;
+  }
+  .about-text {
+    padding: 5rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .about-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--deep);
+    margin-bottom: 2rem;
+  }
+  .about-body {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+  }
+  .about-signature {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  /* ── GUARANTEE ── */
+  .guarantee-section {
+    background: var(--cream);
+    padding: 5rem 4rem;
+    text-align: center;
+  }
+  .guarantee-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 3rem auto 0;
+  }
+  .guarantee-card {
+    padding: 2rem 1.5rem;
+    background: white;
+    border-top: 3px solid var(--terracotta);
+  }
+  .guarantee-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .guarantee-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 0.5rem;
+  }
+  .guarantee-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── COLECȚII ── */
+  .collections-section { padding: 5rem 4rem; }
+  .collections-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .collection-card {
+    position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+  .collection-bg {
+    height: 100%; min-height: 320px;
+    display: flex; align-items: flex-end;
+    padding: 2rem;
+    position: relative;
+  }
+  .col-linen { background: #D6C9B5; }
+  .col-silk { background: #C4B0C8; }
+  .col-cotton { background: #A8C4B0; }
+  .col-mama { background: #C8B4A8; }
+  .collection-info { position: relative; z-index: 2; }
+  .collection-name {
+    font-family: var(--serif);
+    font-size: 2rem; font-weight: 300;
+    color: var(--deep);
+    margin-bottom: 0.3rem;
+  }
+  .collection-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .collection-card:hover .collection-bg { filter: brightness(0.95); }
+  .collection-card:hover .collection-name { color: var(--terracotta); }
+
+  /* ── TESTIMONIALE ── */
+  .testimonials-section {
+    background: var(--deep);
+    padding: 5rem 4rem;
+    color: white;
+  }
+  .testimonials-section .section-eyebrow { color: var(--linen); }
+  .testimonials-section .section-title { color: white; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .testimonial-card {
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 2px solid var(--terracotta);
+  }
+  .stars { color: var(--linen); font-size: 0.9rem; margin-bottom: 1rem; }
+  .testimonial-text {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-author {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--linen);
+  }
+
+  /* ── MĂSURĂTORI ── */
+  .masuratori-section {
+    padding: 5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .masuratori-steps { }
+  .step-item {
+    display: flex; gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--sand);
+    line-height: 1;
+    min-width: 50px;
+  }
+  .step-content { }
+  .step-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--deep);
+    margin-bottom: 0.3rem;
+  }
+  .step-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  /* ── NEWSLETTER ── */
+  .newsletter-section {
+    background: var(--terracotta);
+    padding: 5rem 4rem;
+    text-align: center;
+    color: white;
+  }
+  .newsletter-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 0.8rem;
+  }
+  .newsletter-sub {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+  }
+  .newsletter-form {
+    display: flex; gap: 0; max-width: 480px; margin: 0 auto;
+  }
+  .newsletter-input {
+    flex: 1;
+    padding: 0.9rem 1.4rem;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+  .newsletter-input::placeholder { color: rgba(255,255,255,0.6); }
+  .newsletter-btn {
+    padding: 0.9rem 1.8rem;
+    background: var(--deep);
+    color: white;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .newsletter-note {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    color: rgba(255,255,255,0.7);
+    padding: 4rem 6rem 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand { }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: white;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .footer-tagline {
+    font-size: 0.82rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .footer-social { display: flex; gap: 1rem; }
+  .social-link {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .social-link:hover { border-color: var(--terracotta); color: var(--terracotta); }
+  .footer-col h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.6rem; }
+  .footer-col ul a {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--terracotta); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(44, 31, 22, 0.6);
+    backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: white;
+    max-width: 700px; width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .modal-image {
+    background: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 350px;
+  }
+  .modal-content { padding: 2.5rem; }
+  .modal-close {
+    position: sticky; top: 1rem;
+    float: right;
+    background: none; border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    margin-left: 1rem;
+  }
+  .modal-category {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--terracotta); margin-bottom: 0.5rem;
+  }
+  .modal-name {
+    font-family: var(--serif);
+    font-size: 2rem; font-weight: 400;
+    color: var(--deep); margin-bottom: 0.3rem;
+  }
+  .modal-price {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--terracotta);
+    margin-bottom: 1.2rem;
+  }
+  .modal-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+  .modal-features { margin-bottom: 2rem; }
+  .modal-feature {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+  .modal-feature::before {
+    content: '✓';
+    color: var(--sage);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  .modal-form-note {
+    background: var(--cream);
+    padding: 1rem 1.2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--terracotta);
+  }
+  .modal-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--deep);
+    color: white;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .modal-btn:hover { background: var(--terracotta); }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── POPUP DISCOUNT ── */
+  .popup-discount {
+    display: none;
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+    background: white;
+    padding: 1.5rem 2rem;
+    max-width: 300px;
+    border-left: 4px solid var(--terracotta);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+  .popup-discount.show { display: block; animation: slideUp 0.4s ease; }
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .popup-close {
+    position: absolute; top: 0.5rem; right: 0.8rem;
+    background: none; border: none; font-size: 1rem;
+    cursor: pointer; color: var(--text-muted);
+  }
+  .popup-title {
+    font-family: var(--serif);
+    font-size: 1.2rem; font-weight: 500;
+    color: var(--deep); margin-bottom: 0.3rem;
+  }
+  .popup-offer {
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .popup-code {
+    font-size: 1.4rem;
+    font-family: var(--serif);
+    color: var(--terracotta);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: var(--cream);
+    padding: 0.5rem;
+  }
+  .popup-btn {
+    width: 100%;
+    padding: 0.7rem;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* ── HERO SVG DRESS ── */
+  .hero-dress-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">Lilibeth</a>
+  <ul class="nav-links">
+    <li><a href="#colectii">Colecții</a></li>
+    <li><a href="#despre">Povestea</a></li>
+    <li><a href="#garantii">Garanții</a></li>
+    <li><a href="#masuratoare">Măsurători</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-cart" onclick="alert('Coșul tău este gol momentan.')">Coș (0)</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-text fade-up">
+    <p class="hero-eyebrow">Atelier artizanal · Iași, România</p>
+    <h1 class="hero-title">Rochii <em>croite</em><br>pe măsura ta</h1>
+    <p class="hero-subtitle">Fiecare rochie Lilibeth prinde viață din materiale naturale — in, mătase, bumbac — și se naște din măsurătorile tale reale. Nicio mărime standard. Doar tu.</p>
+    <div class="hero-ctas">
+      <a href="#colectii" class="btn-primary">Descoperă Colecțiile</a>
+      <a href="#masuratoare" class="btn-outline">Cum mă măsor?</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-dress-wrap">
+      <svg viewBox="0 0 320 500" width="320" height="500" xmlns="http://www.w3.org/2000/svg">
+        <!-- elegant dress silhouette -->
+        <defs>
+          <linearGradient id="dressGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#D4B896"/>
+            <stop offset="100%" stop-color="#C9A880"/>
+          </linearGradient>
+        </defs>
+        <!-- Dress body -->
+        <path d="M 110 80 Q 100 120 90 160 Q 70 200 50 260 Q 30 320 20 400 Q 15 450 20 480 L 300 480 Q 305 450 300 400 Q 290 320 270 260 Q 250 200 230 160 Q 220 120 210 80 Z"
+              fill="url(#dressGrad)" opacity="0.85"/>
+        <!-- neckline -->
+        <path d="M 110 80 Q 160 60 210 80" fill="none" stroke="#A0614A" stroke-width="2"/>
+        <!-- waist definition -->
+        <path d="M 95 200 Q 160 185 225 200" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+        <!-- fabric folds on skirt -->
+        <path d="M 60 280 Q 80 340 50 400" fill="none" stroke="rgba(160,97,74,0.3)" stroke-width="1.5"/>
+        <path d="M 260 280 Q 240 340 270 400" fill="none" stroke="rgba(160,97,74,0.3)" stroke-width="1.5"/>
+        <path d="M 160 220 Q 155 340 160 480" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+        <!-- sleeves -->
+        <path d="M 110 100 Q 75 110 60 150 Q 55 165 65 175 Q 80 160 95 140 Q 105 120 110 100 Z"
+              fill="url(#dressGrad)" opacity="0.75"/>
+        <path d="M 210 100 Q 245 110 260 150 Q 265 165 255 175 Q 240 160 225 140 Q 215 120 210 100 Z"
+              fill="url(#dressGrad)" opacity="0.75"/>
+        <!-- subtle embroidery detail -->
+        <circle cx="160" cy="130" r="3" fill="#A0614A" opacity="0.5"/>
+        <circle cx="148" cy="138" r="2" fill="#A0614A" opacity="0.4"/>
+        <circle cx="172" cy="138" r="2" fill="#A0614A" opacity="0.4"/>
+        <circle cx="140" cy="148" r="1.5" fill="#A0614A" opacity="0.3"/>
+        <circle cx="180" cy="148" r="1.5" fill="#A0614A" opacity="0.3"/>
+        <!-- ground shadow -->
+        <ellipse cx="160" cy="488" rx="100" ry="6" fill="rgba(160,97,74,0.1)"/>
+      </svg>
+    </div>
+    <div class="hero-tag top"><strong>Materiale</strong>In, Mătase, Bumbac Natural</div>
+    <div class="hero-tag bottom"><strong>Garanție</strong>Modificări gratuite · Retur tur-retur</div>
+  </div>
+</section>
+
+<!-- ── PROMISE STRIP ── -->
+<div class="promise-strip">
+  <div class="promise-item"><span class="promise-icon">✂</span> Croitorie la comandă</div>
+  <div class="promise-item"><span class="promise-icon">🌿</span> Materiale 100% naturale</div>
+  <div class="promise-item"><span class="promise-icon">↩</span> Modificări gratuite</div>
+  <div class="promise-item"><span class="promise-icon">📦</span> Transport retur inclus</div>
+  <div class="promise-item"><span class="promise-icon">🇷🇴</span> Made in România</div>
+</div>
+
+<!-- ── PRODUSE ── -->
+<section id="colectii">
+  <div class="section-header fade-up">
+    <p class="section-eyebrow">Colecția Curentă</p>
+    <h2 class="section-title">Rochii pentru fiecare <em>poveste</em></h2>
+  </div>
+  <div class="products-grid">
+
+    <div class="product-card fade-up" onclick="openModal('lia')">
+      <div class="product-image">
+        <svg class="dress-svg" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 60 40 Q 55 70 48 100 Q 35 140 25 190 Q 15 230 12 265 L 168 265 Q 165 230 155 190 Q 145 140 132 100 Q 125 70 120 40 Z" fill="#C4B89C" opacity="0.8"/>
+          <path d="M 60 40 Q 90 28 120 40" fill="none" stroke="#8B6A4A" stroke-width="1.5"/>
+          <path d="M 90 80 L 90 265" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+          <path d="M 50 80 Q 35 90 28 115" fill="none" stroke="rgba(139,106,74,0.3)" stroke-width="1"/>
+          <path d="M 130 80 Q 145 90 152 115" fill="none" stroke="rgba(139,106,74,0.3)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="product-badge">Bestseller</div>
+      <div class="product-info">
+        <p class="product-category">Rochii In</p>
+        <h3 class="product-name">Lia</h3>
+        <p class="product-material">In natural premium · Boem</p>
+        <div class="product-footer">
+          <span class="product-price">850 RON</span>
+          <button class="product-cta">Detalii →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-up" onclick="openModal('matase')">
+      <div class="product-image">
+        <svg class="dress-svg" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 65 35 Q 60 55 55 80 Q 40 120 30 170 Q 18 220 15 265 L 165 265 Q 162 220 150 170 Q 140 120 125 80 Q 120 55 115 35 Z" fill="#B8A4C4" opacity="0.75"/>
+          <path d="M 65 35 Q 90 22 115 35" fill="none" stroke="#7A5A8A" stroke-width="1.5"/>
+          <!-- flowing silk folds -->
+          <path d="M 40 140 Q 55 180 38 230" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <path d="M 140 140 Q 125 180 142 230" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <path d="M 90 80 Q 85 170 90 265" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- bodice detail -->
+          <path d="M 70 60 Q 90 50 110 60 Q 108 80 90 78 Q 72 80 70 60 Z" fill="rgba(255,255,255,0.15)"/>
+        </svg>
+      </div>
+      <div class="product-badge" style="background: var(--sage);">Premium</div>
+      <div class="product-info">
+        <p class="product-category">Rochii Mătase</p>
+        <h3 class="product-name">Vis de Mătase</h3>
+        <p class="product-material">Mătase naturală · Elegant</p>
+        <div class="product-footer">
+          <span class="product-price">1.800 RON</span>
+          <button class="product-cta">Detalii →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-up" onclick="openModal('mamica')">
+      <div class="product-image">
+        <svg class="dress-svg" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 58 38 Q 52 60 46 90 Q 32 130 22 180 Q 14 220 12 265 L 168 265 Q 166 220 158 180 Q 148 130 134 90 Q 128 60 122 38 Z" fill="#A8C4B0" opacity="0.8"/>
+          <path d="M 58 38 Q 90 26 122 38" fill="none" stroke="#5A8A6A" stroke-width="1.5"/>
+          <!-- discreet nursing opening detail -->
+          <path d="M 70 60 L 70 90" stroke="#5A8A6A" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+          <path d="M 110 60 L 110 90" stroke="#5A8A6A" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+          <text x="90" y="78" text-anchor="middle" font-size="7" fill="#5A8A6A" opacity="0.6" font-family="serif">♡</text>
+          <path d="M 90 110 Q 85 190 90 265" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Mămici de Pui Mici</p>
+        <h3 class="product-name">Elma</h3>
+        <p class="product-material">Bumbac organic · Alăptare discretă</p>
+        <div class="product-footer">
+          <span class="product-price">950 RON</span>
+          <button class="product-cta">Detalii →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-up" onclick="openModal('alba')">
+      <div class="product-image">
+        <svg class="dress-svg" viewBox="0 0 180 280" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 62 36 Q 56 58 50 88 Q 36 128 26 178 Q 16 218 14 265 L 166 265 Q 164 218 154 178 Q 144 128 130 88 Q 124 58 118 36 Z" fill="#E8E0D4" opacity="0.9"/>
+          <path d="M 62 36 Q 90 24 118 36" fill="none" stroke="#A0614A" stroke-width="1.5"/>
+          <!-- lace-like detail -->
+          <path d="M 62 36 Q 70 50 90 48 Q 110 50 118 36" fill="rgba(255,255,255,0.5)" stroke="rgba(160,97,74,0.2)" stroke-width="0.5"/>
+          <path d="M 55 100 Q 72 108 90 105 Q 108 108 125 100" fill="none" stroke="rgba(160,97,74,0.2)" stroke-width="1"/>
+          <path d="M 90 36 L 90 265" fill="none" stroke="rgba(160,97,74,0.15)" stroke-width="0.8"/>
+        </svg>
+      </div>
+      <div class="product-badge" style="background: #7A6A5A;">Colecție Specială</div>
+      <div class="product-info">
+        <p class="product-category">Nebun de Alb</p>
+        <h3 class="product-name">Nebun de Alb</h3>
+        <p class="product-material">In & Bumbac · Botez & Cununie</p>
+        <div class="product-footer">
+          <span class="product-price">950 RON</span>
+          <button class="product-cta">Detalii →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-up" onclick="openModal('mama-fiica')">
+      <div class="product-image">
+        <svg viewBox="0 0 180 280" class="dress-svg" xmlns="http://www.w3.org/2000/svg">
+          <!-- mama -->
+          <path d="M 40 40 Q 36 58 32 80 Q 22 110 16 150 Q 10 185 8 220 L 92 220 Q 90 185 84 150 Q 78 110 68 80 Q 64 58 60 40 Z" fill="#C4B89C" opacity="0.75"/>
+          <path d="M 40 40 Q 50 30 60 40" fill="none" stroke="#8B6A4A" stroke-width="1.2"/>
+          <!-- fiica (smaller) -->
+          <path d="M 105 70 Q 102 84 99 100 Q 92 120 88 150 Q 84 175 83 205 L 165 205 Q 164 175 160 150 Q 156 120 149 100 Q 146 84 143 70 Z" fill="#C4B89C" opacity="0.6"/>
+          <path d="M 105 70 Q 124 62 143 70" fill="none" stroke="#8B6A4A" stroke-width="1.2"/>
+          <!-- connection hearts -->
+          <text x="82" y="135" font-size="9" fill="#A0614A" opacity="0.5">♡</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Set Asort</p>
+        <h3 class="product-name">Set Mamă-Fiică</h3>
+        <p class="product-material">In natural · Ședințe foto & Evenimente</p>
+        <div class="product-footer">
+          <span class="product-price">de la 950 RON</span>
+          <button class="product-cta">Detalii →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-up" onclick="openModal('jacheta')">
+      <div class="product-image">
+        <svg viewBox="0 0 180 280" class="dress-svg" xmlns="http://www.w3.org/2000/svg">
+          <!-- jacket silhouette -->
+          <path d="M 40 55 Q 30 80 28 120 Q 26 160 28 200 L 152 200 Q 154 160 152 120 Q 150 80 140 55 Z" fill="#8B7A6A" opacity="0.7"/>
+          <path d="M 40 55 Q 90 38 140 55" fill="none" stroke="#5A4A3A" stroke-width="1.5"/>
+          <!-- lapels -->
+          <path d="M 40 55 L 70 100 L 90 85 L 110 100 L 140 55" fill="none" stroke="#5A4A3A" stroke-width="1.2"/>
+          <path d="M 70 100 L 90 190" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+          <!-- pocket -->
+          <rect x="42" y="145" width="28" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <p class="product-category">Jachete & Paltoane</p>
+        <h3 class="product-name">Jachetă Boemă</h3>
+        <p class="product-material">In natural · Tomnatec</p>
+        <div class="product-footer">
+          <span class="product-price">de la 650 RON</span>
+          <button class="product-cta">Detalii →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── GARANTII ── -->
+<section class="guarantee-section fade-up" id="garantii">
+  <div class="section-eyebrow">Promisiunea Lilibeth</div>
+  <h2 class="section-title">Cumperi cu <em>încredere</em></h2>
+  <div class="guarantee-grid">
+    <div class="guarantee-card">
+      <div class="guarantee-icon">✂</div>
+      <h3 class="guarantee-title">Pe măsura ta</h3>
+      <p class="guarantee-desc">Rochiile se confecționează exclusiv pe baza măsurătorilor reale — nicio mărime standardizată.</p>
+    </div>
+    <div class="guarantee-card">
+      <div class="guarantee-icon">✨</div>
+      <h3 class="guarantee-title">Modificări gratuite</h3>
+      <p class="guarantee-desc">Dacă rochia nu se așază perfect, o modificăm gratuit — tiv, lărgime, orice ajustare.</p>
+    </div>
+    <div class="guarantee-card">
+      <div class="guarantee-icon">📦</div>
+      <h3 class="guarantee-title">Transport tur-retur</h3>
+      <p class="guarantee-desc">Acoperim integral costurile de transport tur-retur pentru orice modificare necesară.</p>
+    </div>
+    <div class="guarantee-card">
+      <div class="guarantee-icon">🌿</div>
+      <h3 class="guarantee-title">100% Natural</h3>
+      <p class="guarantee-desc">Folosim exclusiv materiale naturale premium: in, bumbac, viscoză și mătase.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about-split" id="despre">
+  <div class="about-visual">
+    <div class="about-visual-inner fade-up">
+      <svg viewBox="0 0 260 320" width="260" height="320" xmlns="http://www.w3.org/2000/svg">
+        <!-- abstract fabric wave illustration -->
+        <path d="M 20 60 Q 80 20 140 60 Q 200 100 240 60" fill="none" stroke="#A0614A" stroke-width="2" opacity="0.6"/>
+        <path d="M 20 100 Q 80 60 140 100 Q 200 140 240 100" fill="none" stroke="#A0614A" stroke-width="1.5" opacity="0.4"/>
+        <path d="M 20 140 Q 80 100 140 140 Q 200 180 240 140" fill="none" stroke="#A0614A" stroke-width="1" opacity="0.3"/>
+        <!-- needle and thread -->
+        <circle cx="130" cy="160" r="50" fill="none" stroke="#C9B89D" stroke-width="1.5"/>
+        <circle cx="130" cy="160" r="35" fill="none" stroke="#C9B89D" stroke-width="1" stroke-dasharray="4,4"/>
+        <path d="M 130 110 L 130 125 M 130 195 L 130 210 M 80 160 L 95 160 M 165 160 L 180 160" stroke="#A0614A" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- center emblem -->
+        <text x="130" y="168" text-anchor="middle" font-family="Georgia" font-size="28" font-style="italic" fill="#A0614A" opacity="0.7">L</text>
+        <!-- small decorative elements -->
+        <circle cx="50" cy="250" r="4" fill="#C9B89D" opacity="0.5"/>
+        <circle cx="210" cy="250" r="4" fill="#C9B89D" opacity="0.5"/>
+        <path d="M 50 250 Q 130 230 210 250" fill="none" stroke="#C9B89D" stroke-width="1" opacity="0.4"/>
+        <text x="130" y="285" text-anchor="middle" font-family="Georgia" font-size="11" letter-spacing="4" fill="#7A6A5A" opacity="0.8">IAȘI · ROMÂNIA</text>
+      </svg>
+    </div>
+  </div>
+  <div class="about-text fade-up">
+    <p class="about-quote">„Nu vindem haine. Vindem bucuria lucrurilor mici, naturalețea și confortul de a te simți tu."</p>
+    <p class="about-body">Lilibeth s-a născut din viziunea Sarei, mamă a patru copii, care a înțeles că moda nu trebuie să compromită confortul, naturalețea sau diversitatea siluetelor reale. Fiecare rochie iese din atelierul nostru din Iași ca o piesă unică — gândită, croită și finisată cu atenție pentru tine.</p>
+    <p class="about-body">Credem în slow fashion, în materiale care lasă pielea să respire, în haine care rezistă ani de zile și povestesc o poveste proprie. Alegem inul pentru zilele calde de vară, mătasea pentru momentele speciale, bumbacul organic pentru zilele cu bebelușul în brațe.</p>
+    <span class="about-signature">Sara & Echipa Lilibeth</span>
+  </div>
+</section>
+
+<!-- ── MASURATOARE ── -->
+<section class="masuratori-section" id="masuratoare">
+  <div class="fade-up">
+    <div class="section-eyebrow" style="text-align:left;">Procesul Nostru</div>
+    <h2 class="section-title" style="text-align:left; margin-bottom: 3rem;">Cum se naște <em>rochia ta</em></h2>
+    <div class="masuratori-steps">
+      <div class="step-item">
+        <span class="step-num">01</span>
+        <div class="step-content">
+          <h3 class="step-title">Alegi rochia</h3>
+          <p class="step-desc">Navighezi colecția și găsești rochia care vorbește cu sufletul tău. Fiecare model este disponibil în toate materialele noastre naturale.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">02</span>
+        <div class="step-content">
+          <h3 class="step-title">Trimiti măsurătorile</h3>
+          <p class="step-desc">Urmezi ghidul nostru simplu de 5 minute și trimiți bust, talie, șolduri și înălțimea. Nu ai nevoie de experiență — ghidul video te îndrumă pas cu pas.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">03</span>
+        <div class="step-content">
+          <h3 class="step-title">Atelierul lucrează</h3>
+          <p class="step-desc">Croitorii noștri dau viață rochiei pe tiparul tău unic, în 7-14 zile. Primești actualizări pe parcurs.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <span class="step-num">04</span>
+        <div class="step-content">
+          <h3 class="step-title">Rochia ajunge la tine</h3>
+          <p class="step-desc">Dacă ceva nu se așază perfect, ne trimiți rochia înapoi — noi acoperim transportul și facem ajustările gratuit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-up" style="display: flex; align-items: center; justify-content: center;">
+    <svg viewBox="0 0 300 360" width="300" height="360" xmlns="http://www.w3.org/2000/svg">
+      <!-- measuring tape illustration -->
+      <rect x="10" y="10" width="280" height="340" rx="12" fill="#E8DDD0" opacity="0.4"/>
+      <!-- body silhouette outline -->
+      <ellipse cx="150" cy="65" rx="32" ry="38" fill="none" stroke="#C9B89D" stroke-width="1.5"/>
+      <path d="M 118 95 Q 105 115 100 145 Q 95 165 98 185" fill="none" stroke="#C9B89D" stroke-width="1.5"/>
+      <path d="M 182 95 Q 195 115 200 145 Q 205 165 202 185" fill="none" stroke="#C9B89D" stroke-width="1.5"/>
+      <path d="M 98 185 Q 100 220 105 260 L 118 340" fill="none" stroke="#C9B89D" stroke-width="1.5"/>
+      <path d="M 202 185 Q 200 220 195 260 L 182 340" fill="none" stroke="#C9B89D" stroke-width="1.5"/>
+      <!-- measurement lines -->
+      <!-- bust -->
+      <line x1="90" y1="130" x2="210" y2="130" stroke="#A0614A" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="90" y1="126" x2="90" y2="134" stroke="#A0614A" stroke-width="1.5"/>
+      <line x1="210" y1="126" x2="210" y2="134" stroke="#A0614A" stroke-width="1.5"/>
+      <text x="225" y="134" font-family="Jost,sans-serif" font-size="10" fill="#7A6A5A">Bust</text>
+      <!-- waist -->
+      <line x1="92" y1="170" x2="208" y2="170" stroke="#7A8C6E" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="92" y1="166" x2="92" y2="174" stroke="#7A8C6E" stroke-width="1.5"/>
+      <line x1="208" y1="166" x2="208" y2="174" stroke="#7A8C6E" stroke-width="1.5"/>
+      <text x="215" y="174" font-family="Jost,sans-serif" font-size="10" fill="#7A6A5A">Talie</text>
+      <!-- hips -->
+      <line x1="88" y1="210" x2="212" y2="210" stroke="#8B7A9A" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="88" y1="206" x2="88" y2="214" stroke="#8B7A9A" stroke-width="1.5"/>
+      <line x1="212" y1="206" x2="212" y2="214" stroke="#8B7A9A" stroke-width="1.5"/>
+      <text x="218" y="214" font-family="Jost,sans-serif" font-size="10" fill="#7A6A5A">Șolduri</text>
+      <!-- height arrow -->
+      <line x1="55" y1="27" x2="55" y2="340" stroke="#A0614A" stroke-width="1"/>
+      <path d="M 50 32 L 55 20 L 60 32" fill="#A0614A"/>
+      <path d="M 50 335 L 55 347 L 60 335" fill="#A0614A"/>
+      <text x="20" y="192" font-family="Jost,sans-serif" font-size="10" fill="#7A6A5A" transform="rotate(-90,40,192)">Înălțime</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALE ── -->
+<section class="testimonials-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Clientele Noastre</p>
+    <h2 class="section-title">Ce spun <em>femeile</em> care ne poartă</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">„Ce delicatețe și feminitate! Rochia din in m-a cucerit complet — se mișcă atât de natural și stă perfect, ca și cum ar fi crescut odată cu mine."</p>
+      <span class="testimonial-author">Familia Ungureanu · Client fidel</span>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">„Am comandat rochia de maternitate în luna 7 și a venit croită exact. Sistemul de alăptare discret e genial — am purtat-o până în luna 18 după naștere."</p>
+      <span class="testimonial-author">Andreea M. · Mămică Lilibeth</span>
+    </div>
+    <div class="testimonial-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testimonial-text">„Sara a răspuns personal la fiecare întrebare. Rochia a venit, tivul era puțin lung — au trimis curierat, au retușat, am primit înapoi în 5 zile. Incredibil."</p>
+      <span class="testimonial-author">Cristina P. · Iași</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWSLETTER ── -->
+<section class="newsletter-section fade-up">
+  <h2 class="newsletter-title">Fii prima care află</h2>
+  <p class="newsletter-sub">Abonează-te la newsletter și primești 10% reducere la prima comandă</p>
+  <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+    <input type="email" class="newsletter-input" placeholder="adresa ta de email" required>
+    <button type="submit" class="newsletter-btn">Abonează-mă</button>
+  </form>
+  <p class="newsletter-note">Fără spam. Doar lansări noi, povești din atelier și oferte exclusive. Te poți dezabona oricând.</p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo">Lilibeth</span>
+      <p class="footer-tagline">Atelier artizanal de modă feminină din Iași. Rochii din materiale naturale, croite pe măsura ta. Slow fashion cu suflet românesc.</p>
+      <div class="footer-social">
+        <a href="#" class="social-link">f</a>
+        <a href="#" class="social-link">ig</a>
+        <a href="#" class="social-link">yt</a>
+        <a href="#" class="social-link">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Colecții</h4>
+      <ul>
+        <li><a href="#">Rochii Bumbac</a></li>
+        <li><a href="#">Rochii In</a></li>
+        <li><a href="#">Rochii Mătase</a></li>
+        <li><a href="#">Nebun de Alb</a></li>
+        <li><a href="#">Mămici de Pui Mici</a></li>
+        <li><a href="#">Seturi Mamă-Fiică</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Informații</h4>
+      <ul>
+        <li><a href="#">Ghid Măsurători</a></li>
+        <li><a href="#">Cum comand</a></li>
+        <li><a href="#">Politică Retur</a></li>
+        <li><a href="#">Livrare</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:atelier@lilibeth.ro">atelier@lilibeth.ro</a></li>
+        <li><a href="#">WhatsApp Atelier</a></li>
+        <li><a href="#">Iași, România</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Lilibeth Clothes · Iași, România</span>
+    <span>Fabricat cu drag, în România 🇷🇴</span>
+  </div>
+</footer>
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <div class="modal-image" id="modal-image"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <p class="modal-category" id="modal-category"></p>
+      <h2 class="modal-name" id="modal-name"></h2>
+      <p class="modal-price" id="modal-price"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-features" id="modal-features"></div>
+      <div class="modal-form-note">
+        <strong>Croitorie la comandă</strong><br>
+        Rochia se confecționează pe baza măsurătorilor tale. Te contactăm după comandă pentru a colecta datele.
+      </div>
+      <button class="modal-btn" onclick="alert('Funcționalitate coș — în implementare! Vă mulțumim pentru interes.')">
+        Comandă Acum
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── POPUP DISCOUNT ── -->
+<div class="popup-discount" id="popup">
+  <button class="popup-close" onclick="document.getElementById('popup').style.display='none'">✕</button>
+  <p class="popup-title">Bine ai venit! 🌿</p>
+  <p class="popup-offer">Prima ta comandă Lilibeth vine cu o surpriză — 10% reducere cu codul:</p>
+  <div class="popup-code">LILIBETH10</div>
+  <button class="popup-btn" onclick="document.getElementById('popup').style.display='none'; document.querySelector('.newsletter-section').scrollIntoView({behavior:'smooth'})">
+    Abonează-te pentru reducere
+  </button>
+</div>
+
+<script>
+const products = {
+  lia: {
+    category: 'Rochii In · Colecția Boemă',
+    name: 'Rochia Lia',
+    price: '850 RON',
+    desc: 'Rochia Lia este esența simplității boeme. Din in natural premium, respiră ușor în zilele calde și îți oferă acea libertate de mișcare care face diferența. Disponibilă în nude, alb natural, verde salvie și terracotta.',
+    features: ['In natural premium 100%', 'Croită pe măsurătorile tale', 'Disponibilă în 4 culori', 'Spălare manuală sau program delicat', 'Modificări gratuite incluse'],
+    svg: `<svg viewBox="0 0 180 280" width="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 60 40 Q 55 70 48 100 Q 35 140 25 190 Q 15 230 12 265 L 168 265 Q 165 230 155 190 Q 145 140 132 100 Q 125 70 120 40 Z" fill="#C4B89C" opacity="0.85"/>
+      <path d="M 60 40 Q 90 28 120 40" fill="none" stroke="#8B6A4A" stroke-width="1.5"/>
+      <path d="M 48 80 Q 30 90 22 115" fill="none" stroke="rgba(139,106,74,0.4)" stroke-width="1.2"/>
+      <path d="M 132 80 Q 150 90 158 115" fill="none" stroke="rgba(139,106,74,0.4)" stroke-width="1.2"/>
+      <path d="M 90 80 L 90 265" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    </svg>`
+  },
+  matase: {
+    category: 'Rochii Mătase · Premium',
+    name: 'Vis de Mătase',
+    price: '1.800 RON',
+    desc: 'Rochia supremă pentru momentele speciale. Mătasea naturală cade cu o grație inegalabilă, captând lumina și mișcarea în moduri pe care niciun alt material nu le poate replica. O investiție pentru toată viața.',
+    features: ['Mătase naturală 100% — calitate superioară', 'Finisaje manuale de atelier', 'Perfectă pentru events, gale, cununie', 'Siluetă elegantă, adaptabilă', 'Transport prioritar inclus'],
+    svg: `<svg viewBox="0 0 180 280" width="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 65 35 Q 60 55 55 80 Q 40 120 30 170 Q 18 220 15 265 L 165 265 Q 162 220 150 170 Q 140 120 125 80 Q 120 55 115 35 Z" fill="#B8A4C4" opacity="0.8"/>
+      <path d="M 65 35 Q 90 22 115 35" fill="none" stroke="#7A5A8A" stroke-width="1.5"/>
+      <path d="M 40 140 Q 55 180 38 230" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+      <path d="M 140 140 Q 125 180 142 230" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+      <path d="M 70 60 Q 90 50 110 60 Q 108 80 90 78 Q 72 80 70 60 Z" fill="rgba(255,255,255,0.2)"/>
+    </svg>`
+  },
+  mamica: {
+    category: 'Mămici de Pui Mici · Alăptare',
+    name: 'Rochia Elma',
+    price: '950 RON',
+    desc: 'Gândită de o mamă, pentru mame. Rochia Elma are un sistem de închidere ascuns, special conceput pentru alăptare discretă, fără a compromite estetica. Bumbacul organic este delicat cu pielea sensibilă a bebelușului.',
+    features: ['Bumbac organic 100%', 'Sistem deschidere discret pentru alăptare', 'Portabilă și după sarcină', 'Lavabilă la mașină 30°', 'Disponibilă și în maternitate'],
+    svg: `<svg viewBox="0 0 180 280" width="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 58 38 Q 52 60 46 90 Q 32 130 22 180 Q 14 220 12 265 L 168 265 Q 166 220 158 180 Q 148 130 134 90 Q 128 60 122 38 Z" fill="#A8C4B0" opacity="0.85"/>
+      <path d="M 58 38 Q 90 26 122 38" fill="none" stroke="#5A8A6A" stroke-width="1.5"/>
+      <path d="M 70 60 L 70 90" stroke="#5A8A6A" stroke-width="1.2" stroke-dasharray="3,3" fill="none"/>
+      <path d="M 110 60 L 110 90" stroke="#5A8A6A" stroke-width="1.2" stroke-dasharray="3,3" fill="none"/>
+      <text x="90" y="78" text-anchor="middle" font-size="10" fill="#5A8A6A" opacity="0.7" font-family="serif">♡</text>
+    </svg>`
+  },
+  alba: {
+    category: 'Nebun de Alb · Colecție Specială',
+    name: 'Colecția Nebun de Alb',
+    price: '950 RON',
+    desc: 'Albul purității, croitoria artizanală și delicatețea detaliilor — o colecție dedicată momentelor cu adevărat speciale. Botez, cununie civilă sau orice celebrare care merită o rochie pe măsura emoției.',
+    features: ['Amestec In & Bumbac natural', 'Detalii handmade — broderie, dantele', 'Perfectă pentru botez & cununie civilă', 'Disponibilă și pentru fete (set mamă-fiică)', 'Fiecare rochie este unică'],
+    svg: `<svg viewBox="0 0 180 280" width="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 62 36 Q 56 58 50 88 Q 36 128 26 178 Q 16 218 14 265 L 166 265 Q 164 218 154 178 Q 144 128 130 88 Q 124 58 118 36 Z" fill="#E8E0D4" opacity="0.95"/>
+      <path d="M 62 36 Q 90 24 118 36" fill="none" stroke="#A0614A" stroke-width="1.5"/>
+      <path d="M 62 36 Q 70 50 90 48 Q 110 50 118 36" fill="rgba(255,255,255,0.6)" stroke="rgba(160,97,74,0.3)" stroke-width="0.8"/>
+      <path d="M 55 100 Q 72 108 90 105 Q 108 108 125 100" fill="none" stroke="rgba(160,97,74,0.25)" stroke-width="1"/>
+      <path d="M 90 36 L 90 265" fill="none" stroke="rgba(160,97,74,0.12)" stroke-width="0.8"/>
+    </svg>`
+  },
+  'mama-fiica': {
+    category: 'Set Asort · Mamă & Fiică',
+    name: 'Set Mamă-Fiică',
+    price: 'de la 950 RON',
+    desc: 'Setul care transformă orice ședință foto sau moment de familie într-o amintire de neuitat. Rochiile mamei și fetitei sunt asortate cromatic și stilistic, confecționate din același in natural.',
+    features: ['Set complet: rochie mamă + rochie fetiță', 'Același material & culoare — asortate', 'Perfecte pentru ședințe foto', 'Croite separat pe măsurătorile fiecăreia', 'Disponibile și ca piesă separată'],
+    svg: `<svg viewBox="0 0 180 280" width="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 40 40 Q 36 58 32 80 Q 22 110 16 150 Q 10 185 8 220 L 92 220 Q 90 185 84 150 Q 78 110 68 80 Q 64 58 60 40 Z" fill="#C4B89C" opacity="0.8"/>
+      <path d="M 40 40 Q 50 30 60 40" fill="none" stroke="#8B6A4A" stroke-width="1.2"/>
+      <path d="M 105 70 Q 102 84 99 100 Q 92 120 88 150 Q 84 175 83 205 L 165 205 Q 164 175 160 150 Q 156 120 149 100 Q 146 84 143 70 Z" fill="#C4B89C" opacity="0.65"/>
+      <path d="M 105 70 Q 124 62 143 70" fill="none" stroke="#8B6A4A" stroke-width="1.2"/>
+      <text x="82" y="135" font-size="12" fill="#A0614A" opacity="0.6">♡</text>
+    </svg>`
+  },
+  jacheta: {
+    category: 'Jachete & Paltoane',
+    name: 'Jachetă Boemă',
+    price: 'de la 650 RON',
+    desc: 'Completarea perfectă pentru o ținută Lilibeth. Jacheta este croită din in natural sau bumbac, cu un design boem care se potrivește cu orice rochie din colecție. Detaliile manuale — nasturii, buzunarele — fac diferența.',
+    features: ['In natural sau bumbac — la alegere', 'Nasturi naturali handpicked', 'Buzunare reale, funcționale', 'Se asortează cu toate rochiile Lilibeth', 'Croitorie la comandă'],
+    svg: `<svg viewBox="0 0 180 280" width="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 40 55 Q 30 80 28 120 Q 26 160 28 200 L 152 200 Q 154 160 152 120 Q 150 80 140 55 Z" fill="#8B7A6A" opacity="0.75"/>
+      <path d="M 40 55 Q 90 38 140 55" fill="none" stroke="#5A4A3A" stroke-width="1.5"/>
+      <path d="M 40 55 L 70 100 L 90 85 L 110 100 L 140 55" fill="none" stroke="#5A4A3A" stroke-width="1.2"/>
+      <path d="M 70 100 L 90 190" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
+      <rect x="42" y="145" width="28" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+    </svg>`
+  }
+};
+
+function openModal(id) {
+  const p = products[id];
+  if (!p) return;
+  document.getElementById('modal-category').textContent = p.category;
+  document.getElementById('modal-name').textContent = p.name;
+  document.getElementById('modal-price').textContent = p.price;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-image').innerHTML = p.svg;
+  const featuresEl = document.getElementById('modal-features');
+  featuresEl.innerHTML = p.features.map(f => `<div class="modal-feature">${f}</div>`).join('');
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal')) closeModal();
+}
+
+function handleNewsletter(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = '✓ Înscris! Codul tău: LILIBETH10';
+  btn.style.background = '#7A8C6E';
+  e.target.querySelector('input').value = '';
+}
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Popup discount after 4s
+setTimeout(() => {
+  const p = document.getElementById('popup');
+  p.style.display = 'block';
+  p.classList.add('show');
+}, 4000);
+
+// ESC to close modal
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
